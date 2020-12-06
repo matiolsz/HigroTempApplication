@@ -1,4 +1,4 @@
-package domain;
+package pl.olszanka.HigroTempApplication.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
 public class Sensor {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     private String type;

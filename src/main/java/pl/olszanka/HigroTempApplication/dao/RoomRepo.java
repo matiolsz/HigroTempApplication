@@ -1,6 +1,6 @@
-package dao;
+package pl.olszanka.HigroTempApplication.dao;
 
-import domain.Room;
+import pl.olszanka.HigroTempApplication.domain.Room;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

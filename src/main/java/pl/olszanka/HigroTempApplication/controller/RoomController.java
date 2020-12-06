@@ -1,15 +1,18 @@
-package controller;
+package pl.olszanka.HigroTempApplication.controller;
 
-import domain.Room;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import pl.olszanka.HigroTempApplication.domain.Room;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.RoomService;
+import pl.olszanka.HigroTempApplication.service.RoomService;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.Optional;
 
-@Controller
-@RequestMapping("/room/")
+@RestController
+@RequestMapping("/room")
 public class RoomController {
 
     private RoomService roomService;
@@ -25,12 +28,12 @@ public class RoomController {
     }
 
     @GetMapping
-    public Iterable<Room> getAll(){
+    public List<Room> getAll(){
        return roomService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Room> get(@RequestParam Long id){
+    public Room get(@RequestParam Long id){
        return roomService.get(id);
     }
 
@@ -42,6 +45,12 @@ public class RoomController {
     @PutMapping
     public Room put(@RequestBody Room room){
         return roomService.put(room);
+    }
+
+    @ResponseStatus(value= HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EntityNotFoundException.class)
+    public String roomNotFound() {
+        return "mamakikiriki";
     }
 
 }

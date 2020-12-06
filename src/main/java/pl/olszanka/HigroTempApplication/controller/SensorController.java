@@ -1,15 +1,16 @@
-package controller;
+package pl.olszanka.HigroTempApplication.controller;
 
-import domain.Sensor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import service.SensorService;
+import pl.olszanka.HigroTempApplication.domain.Sensor;
+import pl.olszanka.HigroTempApplication.service.SensorService;
 
-import java.util.Optional;
+import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
-@Controller
-@RequestMapping("/sensors/")
+@RestController
+@RequestMapping("/sensors")
 public class SensorController {
     private SensorService sensorService;
 
@@ -24,12 +25,13 @@ public class SensorController {
     }
 
     @GetMapping
-    public Iterable<Sensor> getAll(){
+    public List<Sensor> getAll(){
+        System.out.println("hurra");
         return sensorService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Sensor> getOne(Long id){
+    public Sensor getOne(Long id){
         return sensorService.getOne(id);
     }
 
@@ -43,6 +45,10 @@ public class SensorController {
         return sensorService.create(sensor);
     }
 
-
+    @ResponseStatus(value= HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EntityNotFoundException.class)
+    public String sensorNotFound() {
+        return "mamakikiriki";
+    }
 
 }

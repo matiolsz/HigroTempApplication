@@ -1,7 +1,7 @@
-package dao;
+package pl.olszanka.HigroTempApplication.dao;
 
 
-import domain.Measurement;
+import pl.olszanka.HigroTempApplication.domain.Measurement;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
