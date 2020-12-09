@@ -19,8 +19,9 @@ public class SensorController {
         this.sensorService=sensorService;
     }
 
-    @PostMapping
-    public Sensor create(@RequestParam Sensor sensor){
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public Sensor create(@RequestBody Sensor sensor){
+        System.out.println("dodano nowy czujnik");
         return sensorService.create(sensor);
     }
 

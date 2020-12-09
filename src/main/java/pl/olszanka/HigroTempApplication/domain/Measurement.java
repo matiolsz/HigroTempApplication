@@ -1,9 +1,10 @@
 package pl.olszanka.HigroTempApplication.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Measurement {
+public class Measurement implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -17,6 +18,10 @@ public class Measurement {
     private Long timestamp;
 
     public Measurement() {
+    }
+
+    public Measurement(Double measurement) {
+        this.measurement = measurement;
     }
 
     public Measurement(Long id, Double measurement, Sensor theSensor, Long timestamp) {
@@ -56,5 +61,15 @@ public class Measurement {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "id=" + id +
+                ", measurement=" + measurement +
+                ", theSensor=" + theSensor +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }
