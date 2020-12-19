@@ -1,15 +1,13 @@
 package pl.olszanka.HigroTempApplication.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import pl.olszanka.HigroTempApplication.domain.Room;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pl.olszanka.HigroTempApplication.domain.Room;
 import pl.olszanka.HigroTempApplication.service.RoomService;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/room")

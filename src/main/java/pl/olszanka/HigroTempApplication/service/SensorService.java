@@ -1,12 +1,10 @@
 package pl.olszanka.HigroTempApplication.service;
 
 import com.google.common.collect.Lists;
-import pl.olszanka.HigroTempApplication.dao.SensorRepo;
-import pl.olszanka.HigroTempApplication.domain.Measurement;
-import pl.olszanka.HigroTempApplication.domain.Sensor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import pl.olszanka.HigroTempApplication.dao.SensorRepo;
+import pl.olszanka.HigroTempApplication.domain.Sensor;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;

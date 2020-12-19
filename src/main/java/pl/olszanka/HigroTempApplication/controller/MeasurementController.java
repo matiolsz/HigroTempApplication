@@ -4,18 +4,15 @@ package pl.olszanka.HigroTempApplication.controller;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.olszanka.HigroTempApplication.domain.Measurement;
 import pl.olszanka.HigroTempApplication.service.MeasurementService;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/measurement/")
-
+@RequestMapping("/measurement")
 public class MeasurementController {
 
     private MeasurementService measurementService;
@@ -49,7 +46,7 @@ public class MeasurementController {
     @ResponseStatus(value= HttpStatus.NOT_FOUND)
     @ExceptionHandler(EntityNotFoundException.class)
     public String measurementNotFound() {
-        return "mamakikiriki";
+        return "Nie znaleziono rekordu";
     }
 
 

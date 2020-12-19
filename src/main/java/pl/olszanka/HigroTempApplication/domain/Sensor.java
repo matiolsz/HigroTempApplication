@@ -1,73 +1,42 @@
 package pl.olszanka.HigroTempApplication.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Sensor {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String type;
 
     @ManyToOne
-    private Room theRoom;
+    private Room room;
 
-    @OneToMany(mappedBy = "theSensor")
+    @OneToMany(mappedBy = "sensor")
     private List<Measurement> measurements;
 
     private String IP;
-
-    public Sensor() {
-    }
-
-    public Sensor(Long id, String type, Room theRoom, List<Measurement> measurements, String IP) {
-        this.id = id;
-        this.type = type;
-        this.theRoom = theRoom;
-        this.measurements = measurements;
-        this.IP = IP;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Room getTheRoom() {
-        return theRoom;
-    }
-
-    public void setTheRoom(Room theRoom) {
-        this.theRoom = theRoom;
-    }
-
-    public List<Measurement> getMeasurements() {
-        return measurements;
-    }
-
-    public void setMeasurements(List<Measurement> measurements) {
-        this.measurements = measurements;
-    }
 
     public String getIP() {
         return IP;
     }
 
-    public void setIP(String IP) {
+    public Sensor(Long id, String type, Room room, List<Measurement> measurements, String IP) {
+        this.id = id;
+        this.type = type;
+        this.room = room;
+        this.measurements = measurements;
         this.IP = IP;
     }
+
 }
