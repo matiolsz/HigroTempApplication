@@ -32,7 +32,7 @@ public class SensorController {
 
     @GetMapping
     public List<Sensor> getAll(){
-        System.out.println("hurra");
+        logger.info("Wyświetlam wszystkie sensory");
         return sensorService.findAll();
     }
 
@@ -54,7 +54,7 @@ public class SensorController {
     @ResponseStatus(value= HttpStatus.NOT_FOUND)
     @ExceptionHandler(EntityNotFoundException.class)
     public String sensorNotFound() {
-        return "mamakikiriki";
+        return "Nie ma takiego rekordu";
     }
 
 }

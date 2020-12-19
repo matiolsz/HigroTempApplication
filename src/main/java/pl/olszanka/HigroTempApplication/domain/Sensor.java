@@ -1,5 +1,6 @@
 package pl.olszanka.HigroTempApplication.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Sensor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String type;
@@ -22,6 +23,7 @@ public class Sensor {
     @ManyToOne
     private Room room;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "sensor")
     private List<Measurement> measurements;
 

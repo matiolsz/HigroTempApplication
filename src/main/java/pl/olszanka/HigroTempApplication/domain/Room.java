@@ -15,7 +15,7 @@ import java.util.List;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -23,10 +23,5 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<Sensor> sensors;
 
-    public Room(Long id, String name, List<Sensor> sensors) {
-        this.id = id;
-        this.name = name;
-        this.sensors = sensors;
-    }
 
 }

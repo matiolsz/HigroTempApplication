@@ -48,7 +48,7 @@ public class RoomController {
     @ResponseStatus(value= HttpStatus.NOT_FOUND)
     @ExceptionHandler(EntityNotFoundException.class)
     public String roomNotFound() {
-        return "mamakikiriki";
+        return "Nie ma takiego rekordu";
     }
 
 }
