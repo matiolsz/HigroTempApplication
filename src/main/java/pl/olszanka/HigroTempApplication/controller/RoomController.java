@@ -10,7 +10,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/room")
+@RequestMapping("/rooms")
 public class RoomController {
 
     private RoomService roomService;

@@ -12,7 +12,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/measurement")
+@RequestMapping("/measurements")
 public class MeasurementController {
 
     private MeasurementService measurementService;

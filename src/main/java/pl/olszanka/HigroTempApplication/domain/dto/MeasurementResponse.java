@@ -1,4 +1,4 @@
-package pl.olszanka.HigroTempApplication.domain;
+package pl.olszanka.HigroTempApplication.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

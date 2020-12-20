@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import pl.olszanka.HigroTempApplication.domain.Measurement;
-import pl.olszanka.HigroTempApplication.domain.MeasurementResponse;
+import pl.olszanka.HigroTempApplication.domain.dto.MeasurementResponse;
 import pl.olszanka.HigroTempApplication.domain.Sensor;
 import pl.olszanka.HigroTempApplication.service.MeasurementService;
 import pl.olszanka.HigroTempApplication.service.SensorService;
@@ -39,13 +39,11 @@ public class ScheduledTasks {
 
     public MeasurementResponse callGet(String url) throws ResourceAccessException, HttpMessageNotReadableException {
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<MeasurementResponse> exchange = null;
-        exchange = restTemplate.exchange(
+        return restTemplate.exchange(
                 "http://" + url + "/measurement",
                 HttpMethod.GET,
                 HttpEntity.EMPTY,
-                MeasurementResponse.class);
-        return exchange.getBody();
+                MeasurementResponse.class).getBody();
     }
 
 
