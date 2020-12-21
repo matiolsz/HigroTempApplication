@@ -23,10 +23,10 @@ public class SensorsControllersTL {
     }
 
     @GetMapping
-    public String showRooms(Model model){
+    public String showSensors(Model model){
         List<Sensor> sensorsList = sensorService.findAll();
         model.addAttribute("sensorsList", sensorsList);
-        return "list-sensors";
+        return "sensors/list-sensors";
     }
 
 }

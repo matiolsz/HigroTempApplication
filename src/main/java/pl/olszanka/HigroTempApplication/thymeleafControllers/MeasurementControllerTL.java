@@ -25,6 +25,6 @@ public class MeasurementControllerTL {
     public String showMeasurements(Model model){
         List<Measurement> measurementList = measurementService.getAll();
         model.addAttribute("measurementList", measurementList);
-        return "list-measurements";
+        return "measurements/list-measurements";
     }
 }

@@ -8,30 +8,23 @@
 <nav th:replace="layouts :: navbar"></nav>
 
 <div class="container">
-    <h3>Sensors</h3>
+    <h3>Measurements</h3>
     <hr>
 
-    <!--  Add New Employee Button -->
-    <a th:href="@{/room}"
-       class="btn btn-primary btn-sm mb-3"> 
-        Add Employee 
-    </a> 
-    <br></br>
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
             <th>Id</th>
-            <th>Type</th>
-            <th>From Room</th>
-            <th>IP</th>
-
+            <th>Measurement</th>
+            <th>From Sensor</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="room : ${rooms}">
-            <td th:text="${room.id}"/>
-            <td th:text="${room.name}"/>
+        <tr th:each="measurement : ${measurementList}">
+            <td th:text="${measurement.id}"/>
+            <td th:text="${measurement.measurement}"/>
+            <td th:text="${measurement.sensor}"/>
         </tr>
         </tbody>
 

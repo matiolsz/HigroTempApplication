@@ -27,6 +27,6 @@ public class RoomsControllerTL {
     public String showRooms(Model model){
         List<Room> roomList = roomService.getAll();
         model.addAttribute("roomList", roomList);
-        return "list-rooms";
+        return "rooms/list-rooms";
     }
 }

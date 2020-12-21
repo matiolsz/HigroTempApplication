@@ -8,7 +8,7 @@
 <nav th:replace="layouts :: navbar"></nav>
 
 <div class="container">
-    <h3>Measurements</h3>
+    <h3>Rooms</h3>
     <hr>
 
 
@@ -16,14 +16,13 @@
         <thead class="thead-dark">
         <tr>
             <th>Id</th>
-            <th>Measurement</th>
-            <th>From Sensor</th>
+            <th>Name</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="measurement : ${measurement}">
-            <td th:text="${measurement.id}"/>
-            <td th:text="${measurement.measurement}"/>
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.id}"/>
+            <td th:text="${room.name}"/>
         </tr>
         </tbody>
 
