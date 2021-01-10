@@ -47,8 +47,9 @@ public class ScheduledTasks {
     }
 
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(cron = "${measurement.cron:*/1 * * * * *}")
     public void reportCurrentTime() {
+        logger.info("banana!!!");
         for (Sensor sensor : sensorService.findAll()) {
             try {
                 MeasurementResponse measurementResponse = callGet(sensor.getIP());
@@ -59,7 +60,6 @@ public class ScheduledTasks {
             } catch (HttpMessageNotReadableException e) {
                 logger.error("Brak połączenia z czujnikiem");
             }
-
         }
     }
 }
