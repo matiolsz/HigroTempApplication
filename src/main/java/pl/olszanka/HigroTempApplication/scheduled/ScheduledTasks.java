@@ -48,14 +48,13 @@ public class ScheduledTasks {
 
     @Scheduled(cron = "${measurement.cron:*/1 * * * * *}")
     public void reportCurrentTime() {
-        logger.info("banana!!!");
         for (Sensor sensor : sensorService.findAll()) {
             try {
                 MeasurementResponse measurementResponse = callGet(sensor.getIP());
                 measurementService.create(new Measurement(measurementResponse.getValue(), System.currentTimeMillis(), sensor));
                 logger.info("Dodano nowy pomiar");
             } catch (ResourceAccessException e) {
-                logger.error("czujnik zwraca nieodczytywalną odpowiedź");
+                logger.error("Czujnik zwraca nieodczytywalną odpowiedź");
             } catch (HttpMessageNotReadableException e) {
                 logger.error("Brak połączenia z czujnikiem");
             }

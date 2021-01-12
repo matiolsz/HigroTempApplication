@@ -22,7 +22,6 @@ public class MeasurementController {
         this.measurementService=measurementService;
     }
 
-
     @GetMapping
     public List<Measurement> getAll(){
          return Lists.newArrayList(measurementService.getAll());

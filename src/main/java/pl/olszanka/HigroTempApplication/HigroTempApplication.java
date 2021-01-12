@@ -10,10 +10,4 @@ public class HigroTempApplication {
 		SpringApplication.run(HigroTempApplication.class, args);
 	}
 
-//TODO: popraw wyswietlanie sensorow
-//TODO:dodaj przyporzadkowywanie sensorow pokojom
-//TODO:zewnętrzna baza dancyh
-
-
-
 }
