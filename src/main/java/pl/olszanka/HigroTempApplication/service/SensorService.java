@@ -2,7 +2,9 @@ package pl.olszanka.HigroTempApplication.service;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import pl.olszanka.HigroTempApplication.dao.RoomRepo;
 import pl.olszanka.HigroTempApplication.dao.SensorRepo;
 import pl.olszanka.HigroTempApplication.domain.Sensor;
 
@@ -13,10 +15,12 @@ import java.util.List;
 public class SensorService {
 
     private SensorRepo sensorRepo;
+    private RoomRepo roomRepo;
 
     @Autowired
-    public SensorService(SensorRepo sensorRepo){
+    public SensorService(SensorRepo sensorRepo, RoomRepo roomRepo){
         this.sensorRepo=sensorRepo;
+        this.roomRepo=roomRepo;
     }
 
     public boolean existsById(Long id){
@@ -32,7 +36,7 @@ public class SensorService {
     }
 
     public List<Sensor> findAll(){
-        return Lists.newArrayList(sensorRepo.findAll());
+        return Lists.newArrayList(sensorRepo.findAll(Sort.by("id")));
     }
 
     public Sensor create(Sensor sensor1){
@@ -45,6 +49,12 @@ public class SensorService {
         }else{
             throw new EntityNotFoundException(Long.toString(id));
         }
+    }
+
+    public void addRoomToSensor(Long idSensor,Long idRoom ){
+        Sensor sensor = getOne(idSensor);
+        sensor.setRoom((roomRepo.findById(idRoom).get()));
+        sensorRepo.save(sensor);
     }
 
 }

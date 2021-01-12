@@ -6,15 +6,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import pl.olszanka.HigroTempApplication.domain.Measurement;
-import pl.olszanka.HigroTempApplication.domain.dto.MeasurementResponse;
 import pl.olszanka.HigroTempApplication.domain.Sensor;
+import pl.olszanka.HigroTempApplication.domain.dto.MeasurementResponse;
 import pl.olszanka.HigroTempApplication.service.MeasurementService;
 import pl.olszanka.HigroTempApplication.service.SensorService;
 

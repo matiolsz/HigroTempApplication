@@ -1,10 +1,11 @@
 package pl.olszanka.HigroTempApplication.dao;
 
-import pl.olszanka.HigroTempApplication.domain.Sensor;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+import pl.olszanka.HigroTempApplication.domain.Sensor;
 
 @Repository
-public interface SensorRepo extends CrudRepository<Sensor,Long> {
+public interface SensorRepo extends PagingAndSortingRepository<Sensor,Long> {
+
 
 }

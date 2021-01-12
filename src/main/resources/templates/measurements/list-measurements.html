@@ -24,7 +24,7 @@
         <tr th:each="measurement : ${measurementList}">
             <td th:text="${measurement.id}"/>
             <td th:text="${measurement.measurement}"/>
-            <td th:text="${measurement.sensor}"/>
+            <td th:text="${measurement.sensor.id}"/>
         </tr>
         </tbody>
 

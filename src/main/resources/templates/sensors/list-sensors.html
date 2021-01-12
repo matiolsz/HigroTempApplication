@@ -24,10 +24,42 @@
         </tr>
         </thead>
         <tbody>
+
         <tr th:each="sensor : ${sensorsList}">
             <td th:text="${sensor.id}"/>
             <td th:text="${sensor.type}"/>
-            <td th:text="${sensor.room}" />
+
+            <td>
+            <form action="#"  th:action="@{/sensorsTL/submitRoomToSensor/{id}(id=${sensor.id})}" th:object="${sensorDTO}" method="post">
+                       <select name="roomId"  >
+                           <option th:text="${sensor.getRoom()?.getId()}" ></option>
+                           <option  th:each="room :${roomList}"
+                                    th:text="${room.id}">
+                        </select>
+                <input type="submit" value="Save" />
+            </form>
+            </td>
+
+<!--            <td><select name="roomList">-->
+<!--                <option th:each="room:${roomList}"-->
+<!--                        th:text="${room.id}">-->
+<!--            </select>-->
+<!--                <input type="submit" value="Save" />-->
+<!--            </td>-->
+
+<!--            <td>-->
+<!--                <form name='f' th:object="${sensorDTO}" method='POST'>-->
+<!--                <select th:field="*{roomId}">-->
+<!--                    <option value=""> ${sensor.room.id} </option>-->
+<!--                    <option th:each="room : ${roomList}"-->
+<!--                            th:value="${room.id}"-->
+<!--                            th:utext="${room.name}"/>-->
+<!--                </select>-->
+<!--                </form>-->
+<!--            </td>-->
+
+<!--            <td th:text="${sensor.room}" />-->
+
             <td th:text="${sensor.IP}"/>
         </tr>
         </tbody>
